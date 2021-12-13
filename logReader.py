@@ -1,11 +1,12 @@
 # logReader writted by Sean Selemidis
 #
 # logReader has the following features:
-# outputs: the total number of unique ips
-#          the top 3 most active ip addresses
-#          the top 3 most visited urls
-#          the number of lines that caught a error
-#          a error file with the invalid lines
+# outputs: 
+#   the total number of unique ips
+#   the top 3 most active ip addresses
+#   the top 3 most visited urls
+#   the number of lines that caught a error
+#   a error file with the invalid lines
 # There are a number of checks included to
 # validate whether the line passed follows
 # the correct formatting required for the program
@@ -121,13 +122,13 @@ def main():
         for line in log:
 
             split_line = line_splitter(line)
-            # Check that if line_splitter returns invalid line to add it to error_list
+            # Check that if line_splitter returns invalid line add it to error_list
             if split_line == "Invalid_Line":
                 error_list.append(line)
             else:
                 line_ip = ip_grabber(split_line[0], ip_dict)
                 line_url = url_grabber(split_line[6], url_dict)
-                # Check that if line_ip or line_url returns invalid line to add it to error_list
+                # Check that if line_ip or line_url returns invalid line add it to error_list
                 if line_ip == "Invalid_Line" or line_url == "Invalid_Line":
                     error_list.append(line)
                 else:
